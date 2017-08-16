@@ -1,0 +1,187 @@
+//output: index.html
+
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Ocippa
+    meta(name='description', content='Ocippa Iris von Arnim Branding Commerce')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='manifest', href='site.webmanifest')
+    link(rel='apple-touch-icon', href='icon.png')
+    // Place favicon.ico in the root directory
+    link(rel='stylesheet', href='css/normalize.css')
+    link(rel='stylesheet', href='css/main.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato') 
+  body
+    //if lte IE 9
+      p.browserupgrade
+        | You are using an 
+        strong outdated
+        |  browser. Please 
+        a(href='https://browsehappy.com/') upgrade your browser
+        |  to improve your experience and security.
+    // Add your site or application content here
+    header
+      .headerWrapper#headerWrapper
+        .headInnerWrapper
+          .logoWrapper
+            a(href="#")
+              img(src="img/logo.png", alt="logo.png", width="100%", height="100%")
+          nav.navigation
+            .burgerMenu#burgerMenu
+              span
+              span
+              span
+              span
+      .sideMenu#sideMenu
+        .sideMenuClose#sideMenuClose      
+        .sideMenuInner
+          .xButton#xButton
+            span
+            span
+          p Selected Cases
+          .menuItemWrapper
+            .menuItem
+              a(href="#") Guess Connect
+            .menuItem
+              a(href="#") Postly
+            .menuItem
+              a(href="#") Iris von Arnim
+            .menuItem
+              a(href="#") Yapital
+          p Menu
+          .menuItemWrapper
+            .menuItem
+              a(href="#") Ventures
+            .menuItem
+              a(href="#") Studio
+            .menuItem
+              a(href="#") Careers
+            .menuItem
+              a(href="#") Contact
+          .menuFooter
+            p &copy; Ocippa 2017
+            .menuFooterLinkWrapper
+              a(href="#")
+                span Imprint
+              .line
+    main
+      .mainWrapper
+        section.sectionTop
+          .sectionTopHeader
+            p Iris von Arnim
+            h1 Branding Commerce
+            .sTH_linkWrapper
+              a(href="#")
+                span View Case Study
+              .line
+          .sectionTopPic
+              .sTP_pic
+                img(src="img/toppic.png", alt="toppic.png", width="100%", height="100%")
+              .sTP_picFill
+          .sectionTopColor
+            .sTC_color
+            .sTC_colorFill
+        section.sectionBottom
+          .sectionBottomWrapper
+            article.article1
+              h2 An interface design studio
+              p We help enterprises approach things from the needs of the user and turn complex processes into simple and consumer relatable solutions.
+              .mainArticle_linkWrapper
+                a(href="#")
+                  span Learn More
+                .line
+            article.article2
+              .subArticle_picWrapper
+                img(src="img/article2.png" alt="article2.png", width="100%", height="100%")
+              .subArticle_textWrapper
+                p Design Thoughts
+                h3 Underneath the interface
+                .subArticle_spanWrapper
+                  span Read More
+                  .line
+              a(href="#")
+            article.article3
+              .subArticle_picWrapper
+                img(src="img/article3.png" alt="article3.png", width="58.6%", height="132.75%")
+                .imgclip
+              .subArticle_textWrapper
+                p Case Study
+                h3 Building a new ecommerce experience for Iris von Armin
+                .subArticle_spanWrapper
+                  span View Case Study
+                  .line 
+              a(href="#")
+            article.article4
+              .subArticle_picWrapper
+                img(src="img/article4.png" alt="article4.png", width="100%", height="100%")
+              .subArticle_textWrapper
+                p Design Thoughts
+                h3 Provide solutions, not features
+                .subArticle_spanWrapper
+                  span Read More
+                  .line
+              a(href="#")
+            article.article5
+              .subArticle_picWrapper
+                img(src="img/article5.png" alt="article5.png", width="100%", height="100%")
+              .subArticle_textWrapper
+                p dribbble
+                h3 View recent shots of our work
+                .subArticle_spanWrapper
+                  span View latest shots
+                  .line  
+              a(href="#")
+    aside
+      .asideWrapper
+        section.asideRow  
+          .asideRow-1_logo
+            img(src="img/logo.png" alt="logo.png", width="100%", height="100%")
+            a(href="#")
+        section.asideRow
+          p Selected Cases
+          a(href="#")
+            span Guess Connect
+          a(href="#")
+            span Postly
+          a(href="#")
+            span Iris von Armin
+          a(href="#")
+            span Yapital
+        section.asideRow
+          p Ventures
+          a(href="#")
+            span Postly
+          a(href="#")
+            span Voony Games
+          a(href="#")
+            span Snappd
+        section.asideRow
+          p Company
+          a(href="#")
+            span Studio
+          a(href="#")
+            span Careers
+          a(href="#")
+            span Contact
+    footer
+      .footerWrapper
+        p 2017 Ocippa AG.
+        .footer_linkWrapper
+          a(href="#")
+            span Imprint
+          .line          
+    script(src='js/vendor/modernizr-3.5.0.min.js')
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\\/script>')
+    script(src='js/plugins.js')
+    script(src='js/menutoggle.js')
+    script(src='js/showarticles.js')
+    // Google Analytics: change UA-XXXXX-Y to be your site's ID.
+    script.
+      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+      ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+    script(src='https://www.google-analytics.com/analytics.js', async='', defer='')

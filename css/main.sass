@@ -1,0 +1,1126 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+
+/* ==========================================================================
+ * Base styles: opinionated defaults
+ * ==========================================================================
+
+html
+  color: #222
+  font-size: 1em
+  line-height: 1.4
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+
+\::selection
+  background: #b3d4fc
+  text-shadow: none
+
+/*
+ * A better looking default horizontal rule
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+
+audio, canvas, iframe, img, svg, video
+  vertical-align: middle
+
+/*
+ * Remove default fieldset styles.
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+/*
+ * Allow only vertical resizing of textareas.
+
+textarea
+  resize: vertical
+
+/* ==========================================================================
+ * Browser Upgrade Prompt
+ * ==========================================================================
+
+.browserupgrade
+  margin: 0.2em 0
+  background: #ccc
+  color: #000
+  padding: 0.2em 0
+
+/* ==========================================================================
+ * Author's custom styles
+ * ==========================================================================
+// color variables
+$white: white
+$light-brown: #cea883
+$brown: #c19366
+$light-grey: lightgrey
+$mid-grey: #b3b3b3
+$grey: #888
+$heavy-grey: rgb(80, 80, 80)
+$dark-grey: rgb(31, 32, 33)
+$box-shadow: rgba(80, 80, 80, 0.05)
+$black: black
+$light-orage: #f8ecdd
+
+
+// link colors
+a
+  color: $dark-grey
+  text-decoration: none
+  &:link, &:visited, &:hover, &:active
+    color: $dark-grey
+    text-decoration: none
+
+// styles for tags
+*
+  box-sizing: border-box
+  -webkit-tap-highlight-color: transparent
+
+body
+  margin: 0
+  padding: 0
+  font-family: 'Lato', sans-serif
+
+header
+  display: flex
+  justify-content: center
+  z-index: 4
+
+footer
+  display: flex
+  justify-content: center
+
+// styles for classes
+
+.headerWrapper
+  width: 100vw
+  height: 70px
+  position: fixed
+  top: 0
+  display: flex
+  justify-content: center
+  background-color: $white
+  border-bottom: 1px solid $light-grey
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1)
+  z-index: 4
+
+.headInnerWrapper
+  width: 70%
+  height: 100%
+  display: flex
+  flex-flow: row
+  justify-content: space-between
+  background-color: $white
+
+.logoWrapper
+  width: 112px
+  height: 35px
+  flex-shrink: 0
+  align-self: center
+  position: relative
+  a
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+.navigation
+  width: 36px
+  height: 36px
+  display: flex
+  flex-shrink: 0
+  align-self: center
+  position: relative
+  z-index: 15
+
+.burgerMenu
+  width: 36px
+  height: 36px
+  position: relative
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-self: center
+  cursor: pointer
+  span
+    display: block
+    width: 36px
+    height: 4px
+    background-color: $black
+    border-radius: 2px
+    align-self: center
+    &:nth-child(2)
+      margin: 5px 0
+    &:nth-child(4)
+      position: absolute
+      top: calc(50% - 2px)
+
+.sideMenu
+  width: calc(100vw + 10px)
+  height: 100vh
+  position: fixed
+  top: 0
+  z-index: 12
+  transform: translateX(calc(100vw + 10px))
+  transition: all 300ms
+  transition-delay: 100ms
+
+.open
+  transform: translateX(0)
+  transition: all 300ms
+
+.sideMenuClose
+  width: calc(100vw - 500px + 10px)
+  height: 100vh
+  background-color: transparent
+  cursor: pointer
+  transition: background-color 100ms
+  transition-delay: 0ms
+
+.fade
+  background-color: rgba(80, 80, 80, 0.5)
+  transition: background-color 300ms
+  transition-delay: 330ms
+
+.sideMenuInner
+  width: 500px
+  max-width: 102vw
+  height: 100vh
+  position: absolute
+  top: 0
+  right: 0
+  overflow-y: scroll
+  background-color: $dark-grey
+  padding-top: 21px
+  padding-left: 40px
+  padding-right: 70px
+  font-weight: bold
+  z-index: 13
+  p
+    font-size: 18px
+    color: $heavy-grey
+    letter-spacing: 2px
+
+.xButton
+  width: 28px
+  height: 28px
+  position: relative
+  cursor: pointer
+  span
+    display: block
+    width: 28px
+    height: 3px
+    background-color: $white
+    border-radius: 2px
+    position: absolute
+    top: 11px
+    transform-origin: 50% 50%
+    transform: rotate(45deg)
+    &:first-child
+      transform: rotate(-45deg)
+
+.menuItemWrapper
+  display: flex
+  flex-flow: column
+  justify-content: flex-start
+
+.menuItem
+  display: inline-block
+  a
+    font-size: 22px
+    color: $white
+    letter-spacing: 2px
+
+.menuFooter
+  height: 70px
+  position: absolute
+  bottom: 0
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  @media only screen and (max-height: 940px)
+    position: static
+    margin-top: calc(93vh - 420px)
+  @media only screen and (max-height: 500px)
+    margin-top: 40px
+  p
+    font-size: 14px
+    letter-spacing: normal
+    margin: 0
+    @media only screen and (max-width: 250px)
+      margin-right: 80%
+
+.menuFooterLinkWrapper
+  margin-left: 270px
+  @media only screen and (max-width: 500px)
+    margin-left: calc(100vw - 40px - 93px - 46px - 40px)
+  @media only screen and (max-width: 250px)
+    margin-left: 0
+  @media only screen and (max-height: 940px)
+    margin-left: 0
+  a
+    position: relative
+    span
+      font-size: 14px
+      color: $heavy-grey
+      &::after
+        content: ""
+        width: 100%
+        height: 12px
+        position: absolute
+        left: 0
+        bottom: -2px
+        background-color: rgba(80, 80, 80, 0.3)
+        transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+        transition-delay: 0ms
+        transform: scaleX(0)
+        transform-origin: 0% 50%
+        z-index: -1
+  .line
+    background-color: $heavy-grey
+
+.mainWrapper
+  width: 100%
+
+.line
+  width: 100%
+  height: 2px
+  margin-top: 8px
+  background-color: $light-grey
+  transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+  transition-delay: 300ms
+  transform-origin: 100% 50%
+
+.sectionTop
+  width: 100%
+  height: 100vh
+  display: flex
+  flex-flow: row nowrap
+  justify-content: center
+  @media only screen and (min-width: 1100px), only screen and (max-height: 800px)
+    height: 800px
+  @media only screen and (max-width: 800px)
+    flex-flow: column
+    justify-content: flex-start
+    align-items: center
+    height: auto
+
+
+
+.sectionTopHeader
+  width: 450px
+  height: 400px
+  margin-left: 100px
+  align-self: center
+  padding: 50px 30px 50px 0
+  animation: move_x 1000ms forwards
+  transition-timing-function: cubic-bezier(0.15, 0.88, 0.82, 0.15)
+  transform: translateX(-30px)
+  animation-delay: 200ms
+  @media only screen and (max-width: 800px)
+    width: 60%
+    height: auto
+    margin: 100px auto 0 auto
+    padding: 0
+  @media only screen and (max-width: 300px)
+    width: 70%
+  p
+    font-size: 22px
+    position: relative
+    color: $white
+    animation: font_light-brown 100ms forwards
+    animation-delay: 300ms
+    @media only screen and (max-width: 1200px)
+      font-size: 20px
+    @media only screen and (max-width: 1000px)
+      font-size: 18px
+    @media only screen and (max-width: 450px)
+      font-size: 16px
+    &::after
+      content: ""
+      display: block
+      width: 170px
+      height: 26px
+      background-color: $light-brown
+      position: absolute
+      top: 1px
+      left: -6px
+      animation: scale_x 800ms forwards
+      animation-delay: 100ms
+      transform: scaleX(0)
+      @media only screen and (max-width: 1200px)
+        width: 155px
+        height: 23px
+      @media only screen and (max-width: 1000px)
+        width: 139px
+        height: 21px
+      @media only screen and (max-width: 450px)
+        width: 124px
+        height: 19px
+  h1
+    font-size: 75px
+    line-height: 80px
+    margin: 0 0 20px 0
+    font-weight: normal
+    position: relative
+    color: $white
+    animation: font_black 100ms forwards
+    animation-delay: 400ms
+    @media only screen and (max-width: 1200px)
+      font-size: 70px
+      line-height: 75px
+    @media only screen and (max-width: 1000px)
+      font-size: 60px
+      line-height: 65px
+    @media only screen and (max-width: 450px)
+      font-size: 40px
+      line-height: 45px
+    &::after
+      content: ""
+      display: block
+      width: 420px
+      height: 160px
+      background-color: $black
+      position: absolute
+      top: 1px
+      left: -6px
+      animation: scale_x 800ms forwards
+      animation-delay: 200ms
+      transform: scaleX(0)
+      @media only screen and (max-width: 1200px)
+        width: 392px
+        height: 149px
+      @media only screen and (max-width: 1000px)
+        width: 336px
+        height: 128px
+      @media only screen and (max-width: 450px)
+        width: 224px
+        height: 85px
+
+.sTH_linkWrapper
+  display: inline-block
+  a
+    font-size: 13px
+    position: relative
+    color: $white
+    animation: font_black 100ms forwards
+    animation-delay: 600ms
+    span::before
+      content: ""
+      display: block
+      width: 120px
+      height: 17px
+      background-color: $black
+      position: absolute
+      top: 0
+      left: -6px
+      animation: scale_x 800ms forwards
+      animation-delay: 400ms
+      transform: scaleX(0)
+    span::after
+      content: ""
+      display: block
+      width: 110px
+      height: 10px
+      background-color: $light-brown
+      position: absolute
+      bottom: -2px
+      transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+      transition-delay: 0ms
+      transform: scaleX(0)
+      transform-origin: 0% 50%
+      z-index: -1
+  .line
+    margin-top: 15px
+    background-color: $light-brown
+    opacity: 0
+    animation: line_scale_x 800ms forwards
+    animation-delay: 200ms
+    transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+    transition-delay: 500ms
+    transform-origin: 100% 50%
+
+.sectionTopPic
+  width: 400px
+  height: 400px
+  align-self: center
+  display: flex
+  flex: 0 0 auto
+  z-index: 2
+  overflow: hidden
+  animation: move_x_pic 1000ms forwards
+  box-shadow: 8px 8px 5px 0 transparent
+  transform: translateX(-30px)
+  animation-delay: 300ms
+  @media only screen and (max-width: 1000px)
+    width: 41%
+    height: 41vw
+  @media only screen and (max-width: 800px)
+    margin-top: 80px
+    width: 60%
+    height: 60vw
+
+.sTP_pic
+  width: 100%
+  height: 100%
+  flex: 0 0 auto
+  transform: translateX(-201%)
+  animation: move_x 1500ms forwards
+  animation-delay: 200ms
+
+.sTP_picFill
+  width: 100%
+  height: 100%
+  flex: 0 0 auto
+  background-color: $grey
+  transform: translateX(-201%)
+  animation: move_x 1500ms forwards
+  animation-delay: 400ms
+
+.sectionTopColor
+  width: 120px
+  height: 540px
+  align-self: center
+  margin-left: -70px
+  display: flex
+  z-index: 1
+  overflow: hidden
+  animation: move_x 1000ms forwards
+  transform: translateX(-30px)
+  animation-delay: 400ms
+  @media only screen and (max-width: 1000px)
+    width: 12%
+    height: 55vw
+  @media only screen and (max-width: 800px)
+    width: 18%
+    height: 65vw
+    position: absolute
+    top: calc(430px - 2.5vw)
+    right: 12vw
+  @media only screen and (max-width: 450px)
+    top: calc(383px - 2.5vw)
+
+.sTC_color
+  width: 100%
+  height: 100%
+  flex: 0 0 auto
+  background-color: $light-brown
+  transform: translateX(-201%)
+  animation: move_x 1500ms forwards
+  animation-delay: 900ms
+
+.sTC_colorFill
+  width: 100%
+  height: 100%
+  flex: 0 0 auto
+  background-color: $brown
+  transform: translateX(-201%)
+  animation: move_x 1500ms forwards
+  animation-delay: 900ms
+
+.sectionBottom
+  width: 100%
+  display: flex
+  justify-content: center
+  @media only screen and (max-width: 800px)
+    margin-top: 100px
+
+.article_fade_in
+  animation: article_fade_in 1000ms forwards
+  animation-timing-function: cubic-bezier(0.36, 1, 0.79, 1.1)
+
+.sectionBottomWrapper
+  width: 900px
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
+  @media only screen and (max-width: 1000px)
+    width: 90%
+    margin: 0 auto
+  article
+    margin-bottom: 40px
+    position: relative
+    > a
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+    &:not(:first-child)
+      width: 430px
+      opacity: 0
+      transform: translateY(180%)
+      @media only screen and (max-width: 1000px)
+        width: 46%
+      @media only screen and (max-width: 600px)
+        width: 100%
+      span::after
+        width: 80px
+    &:nth-child(odd)
+      span::after
+        width: 120px
+    &:nth-child(3), &:nth-child(5)
+      position: relative
+      top: -220px
+      @media only screen and (max-width: 600px)
+        position: static
+        top: auto
+
+  .article1
+    width: 430px
+    height: 350px
+    padding-right: 80px
+    opacity: 1
+    transform: translateY(0%)
+    @media only screen and (max-width: 1100px)
+      width: 90%
+      height: auto
+      padding: 0
+    @media only screen and (max-width: 1000px)
+      width: 70%
+      margin: 0 auto
+    @media only screen and (max-width: 600px)
+      width: 80%
+    h2
+      font-size: 44px
+      line-height: 48px
+      font-weight: normal
+      @media only screen and (max-width: 1100px)
+        font-size: 40px
+    p
+      font-size: 20px
+      color: $grey
+      @media only screen and (max-width: 1100px)
+        font-size: 18px
+    .mainArticle_linkWrapper
+      display: inline-block
+      margin-top: 10px
+      a
+        font-size: 15px
+        span
+          font-size: 15px
+          position: relative
+          &::after
+            content: ""
+            display: block
+            width: 85px
+            height: 8px
+            background-color: $light-grey
+            position: absolute
+            bottom: 0px
+            transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+            transition-delay: 0ms
+            transform: scaleX(0)
+            transform-origin: 0% 50%
+            z-index: -1
+      .line
+        transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+        transition-delay: 300ms
+        transform-origin: 100% 50%
+
+  .article2
+    margin-top: 200px
+    margin-left: 40px
+    @media only screen and (max-width: 1100px)
+      margin-top: 0
+      margin-left: 470px
+    @media only screen and (max-width: 1000px)
+      margin-left: 53%
+    @media only screen and (max-width: 600px)
+      margin-left: 0
+      margin-top: 70px
+    @media only screen and (max-width: 400px)
+      margin-top: 30px
+
+  .article3
+    @media only screen and (max-width: 600px)
+      margin-top: 100px
+    @media only screen and (max-width: 400px)
+      margin-top: 60px
+    .subArticle_picWrapper
+      width: 100%
+      height: 284px
+      background-color: $light-orage
+      position: relative
+      overflow: visible
+      @media only screen and (max-width: 1000px)
+        height: 26.75vw
+      @media only screen and (max-width: 600px)
+        height: 59.44vw
+      img
+        position: absolute
+        bottom: 0
+        left: 20.7%
+      .imgclip
+        width: 100%
+        height: 40px
+        background-color: $white
+        position: absolute
+        bottom: -40px
+
+  .article4
+    margin-left: 40px
+    @media only screen and (max-width: 1000px)
+      margin-left: 8%
+    @media only screen and (max-width: 600px)
+      margin-left: 0
+      margin-top: 70px
+    @media only screen and (max-width: 400px)
+      margin-top: 30px
+
+  .article5
+    margin-bottom: -120px
+    @media only screen and (max-width: 600px)
+      margin-bottom: 80px
+      margin-top: 70px
+    @media only screen and (max-width: 400px)
+      margin-top: 30px
+
+
+  .subArticle_picWrapper
+    width: 100%
+    height: 284px
+    overflow: hidden
+    @media only screen and (max-width: 1000px)
+      height: 26.75vw
+    @media only screen and (max-width: 600px)
+      height: 59.44vw
+    img
+      transform-origin: 50% 50%
+      transition: all 300ms ease-in-out
+      transition-delay: 100ms
+
+  .subArticle_textWrapper
+    padding-left: 20px
+    padding-right: 20px
+    padding-top: 25px
+    p
+      font-size: 14px
+      color: $mid-grey
+      margin-bottom: 5px
+    h3
+      font-size: 24px
+      margin-top: 0
+      @media only screen and (max-width: 800px)
+        font-size: 20px
+      @media only screen and (max-width: 600px)
+        font-size: 24px
+
+  .subArticle_spanWrapper
+    display: inline-block
+    span
+      font-size: 15px
+      display: block
+      position: relative
+      &::after
+        content: ""
+        display: block
+        height: 8px
+        background-color: $light-grey
+        position: absolute
+        bottom: 2px
+        transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+        transition-delay: 0ms
+        transform: scaleX(0)
+        transform-origin: 0% 50%
+        z-index: -1
+
+.asideWrapper
+  width: calc(100vw - 15vw - (50vw - 350px))
+  margin-left: 15vw
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  align-items: flex-start
+  margin-bottom: 60px
+  @media only screen and (max-width: 1000px)
+    width: 70%
+
+.asideRow
+  display: flex
+  flex-flow: column
+  justify-content: flex-start
+  p
+    margin-top: 0
+    margin-bottom: 22px
+    font-size: 14px
+    font-weight: bold
+  a
+    font-size: 14px
+    color: $mid-grey
+    span
+      display: inline-block
+      margin-bottom: 14px
+  &:first-child
+    @media only screen and (max-width: 660px)
+      margin-right: calc(100% - 112px)
+      margin-bottom: 40px
+    @media only screen and (max-width: 600px)
+      margin-bottom: 80px
+  &:not(:first-child)
+    margin-left: 80px
+    @media only screen and (max-width: 660px)
+      margin-left: 0
+    @media only screen and (max-width: 600px)
+      margin-left: 10%
+      margin-right: 10%
+    @media only screen and (max-width: 550px)
+      margin-left: 0
+      margin-right: 0
+    @media only screen and (max-width: 350px)
+      width: 100%
+      margin: 0 auto
+  &:nth-child(3)
+    @media only screen and (max-width: 600px)
+      margin-left: calc(70% - 84px - 93px)
+    @media only screen and (max-width: 350px)
+      margin-left: 0
+      margin-top: 20px
+  &:last-child
+    @media only screen and (max-width: 1000px)
+      margin-left: calc(100% - 84px)
+    @media only screen and (max-width: 660px)
+      margin-left: 0
+    @media only screen and (max-width: 600px)
+      margin-left: calc(90% - 84px)
+      margin-top: 20px
+    @media only screen and (max-width: 550px)
+      margin-left: calc(100% - 84px)
+    @media only screen and (max-width: 350px)
+      margin-left: 0
+
+.asideRow-1_logo
+  width: 112px
+  height: 35px
+  flex: 0 0 auto
+  position: relative
+  a
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+.footerWrapper
+  width: 70%
+  height: 65px
+  display: flex
+  justify-content: space-between
+  border-top: 1px solid $light-grey
+  p
+    font-size: 14px
+    color: $mid-grey
+    margin-top: 12px
+
+.footer_linkWrapper
+  margin-top: 12px
+  display: inline-block
+  a
+    position: relative
+    span
+      font-size: 14px
+      color: $mid-grey
+      &::after
+        content: ""
+        width: 100%
+        height: 12px
+        position: absolute
+        left: 0
+        bottom: -2px
+        background-color: rgba(180, 180, 180, 0.3)
+        transition: all 400ms cubic-bezier(0.81, 0.15, 0.26, 0.99)
+        transition-delay: 0ms
+        transform: scaleX(0)
+        transform-origin: 0% 50%
+        z-index: -1
+  .line
+    background-color: $mid-grey
+
+//-------------------------------------------------------
+// styles for hover
+//-------------------------------------------------------
+
+.menuFooterLinkWrapper
+  a:hover
+    span::after
+      transition-delay: 300ms
+      transform: scaleX(1)
+      transform-origin: 0% 50%
+    & ~ .line
+      transition-delay: 0ms
+      transform: scaleX(0)
+      transform-origin: 100% 50%
+
+
+.sTH_linkWrapper
+  a:hover
+    span::after
+      transition-delay: 300ms
+      transform: scaleX(1)
+      transform-origin: 0% 50%
+    & ~ .line
+      transition-delay: 0ms
+      transform: scaleX(0)
+      transform-origin: 100% 50%
+
+.sectionBottomWrapper
+  article
+    .mainArticle_linkWrapper
+      a:hover
+        span::after
+          transition-delay: 300ms
+          transform: scaleX(1)
+          transform-origin: 0% 50%
+        & ~ .line
+          transition-delay: 0ms
+          transform: scaleX(0)
+          transform-origin: 100% 50%
+
+article:hover
+  .subArticle_textWrapper
+    .subArticle_spanWrapper
+      span::after
+        transition-delay: 300ms
+        transform: scaleX(1)
+        transform-origin: 0% 50%
+      .line
+        transition-delay: 0ms
+        transform: scaleX(0)
+        transform-origin: 100% 50%
+  .subArticle_picWrapper
+    img
+      transform: scale(1.1, 1.1)
+      transform-origin: 50% 50%
+      transition: all 300ms ease-in-out
+      transition-delay: 100ms
+
+.asideWrapper
+  a:hover
+    color: $grey
+
+.footer_linkWrapper
+  a:hover
+    span::after
+      transition-delay: 300ms
+      transform: scaleX(1)
+      transform-origin: 0% 50%
+    & ~ .line
+      transition-delay: 0ms
+      transform: scaleX(0)
+      transform-origin: 100% 50%
+//-------------------------------------------------------
+// animation keyframes
+//-------------------------------------------------------
+
+@keyframes move_x
+  to
+    transform: translateX(0)
+
+@keyframes move_x_pic
+  to
+    transform: translateX(0)
+    box-shadow: 8px 8px 5px 0 $box-shadow
+
+
+@keyframes scale_x
+  0%
+    transform-origin: left center
+    transform: scaleX(0)
+  50%
+    transform-origin: left center
+    transform: scaleX(1)
+  51%
+    transform-origin: right center
+  100%
+    transform-origin: right center
+    transform: scaleX(0)
+
+@keyframes line_scale_x
+  0%
+    opacity: 1
+    width: 0
+  99%
+    width: 100%
+  100%
+    opacity: 1
+    transform-origin: right center
+
+@keyframes font_light-brown
+  to
+    color: $light-brown
+
+@keyframes font_black
+  to
+    color: $black
+
+@keyframes article_fade_in
+  50%
+    opacity: 0
+  to
+    opacity: 1
+    transform: translateY(0%)
+
+/* ==========================================================================
+ * Helper classes
+ * ==========================================================================
+
+/*
+ * Hide visually and from screen readers
+
+.hidden
+  display: none !important
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  clip-path: inset(50%)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  white-space: nowrap
+  /* 1
+  &.focusable
+    &:active, &:focus
+      clip: auto
+      clip-path: none
+      height: auto
+      margin: 0
+      overflow: visible
+      position: static
+      width: auto
+      white-space: inherit
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+
+.invisible
+  visibility: hidden
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+
+.clearfix
+  &:before
+    content: " "
+    /* 1
+    display: table
+    /* 2
+  &:after
+    content: " "
+    /* 1
+    display: table
+    /* 2
+    clear: both
+
+/* ==========================================================================
+ * EXAMPLE Media Queries for Responsive Design.
+ * These examples override the primary ('mobile first') styles.
+ * Modify as content requires.
+ * ==========================================================================
+
+@media only screen and (min-width: 35em)
+  /* Style adjustments for viewports that meet the condition
+
+@media print, (min-resolution: 1.25dppx), (min-resolution: 120dpi)
+  /* Style adjustments for high resolution devices
+
+/* ==========================================================================
+ * Print styles.
+ * Inlined to avoid the additional HTTP request:
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * ==========================================================================
+
+@media print
+  *
+    background: transparent !important
+    color: #000 !important
+    /* Black prints faster:
+     * http://www.sanbeiji.com/archives/953
+    box-shadow: none !important
+    text-shadow: none !important
+    &:before, &:after
+      background: transparent !important
+      color: #000 !important
+      /* Black prints faster:
+       * http://www.sanbeiji.com/archives/953
+      box-shadow: none !important
+      text-shadow: none !important
+  a
+    text-decoration: underline
+    &:visited
+      text-decoration: underline
+    &[href]:after
+      content: " (" attr(href) ")"
+  abbr[title]:after
+    content: " (" attr(title) ")"
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+  a
+    &[href^="#"]:after, &[href^="javascript:"]:after
+      content: ""
+  pre
+    white-space: pre-wrap !important
+    border: 1px solid #999
+    page-break-inside: avoid
+  blockquote
+    border: 1px solid #999
+    page-break-inside: avoid
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+  thead
+    display: table-header-group
+  tr, img
+    page-break-inside: avoid
+  p, h2, h3
+    orphans: 3
+    widows: 3
+  h2, h3
+    page-break-after: avoid
